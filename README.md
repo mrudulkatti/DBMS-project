@@ -1,2 +1,4 @@
-# DBMS-project
-DBMS Mini Project
+# Project-DBMS
+Mini project for helping student.
+Students! Thank  us later
+
