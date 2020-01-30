@@ -1,3 +1,4 @@
 # Project-DBMS
-Mini project for DBMS aimed at benefitting teachers and students alike.
+Mini project for helping student.
+Students! Thank  us later
 

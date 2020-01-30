@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Table V04</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{{url_for('static',filename='table/images/icons/favicon.ico')}}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='table/vendor/bootstrap/css/bootstrap.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename = 'table/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename ='table/vendor/animate/animate.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename ='table/vendor/select2/select2.min.css' ) }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename = 'table/fonts/vendor/perfect-scrollbar/perfect-scrollbar.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename ='table/css/util.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename ='table/css/main.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename ='selectsub/css/main.css')}}">
+	<style type="text/css">
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}  
+</style>
+	<!-- <link rel="stylesheet" href="{{ url_for('static',filename = 'css/signupstyle.css') }}"> -->
+<!--===============================================================================================-->
+</head>
+<body background="{{ url_for('static',filename='css/120.jpg') }}">
+	<br>
+	<h1 align="center">SUBMIT ATTENDENCE</h1>
+	<br>
+	<div class="topnav">
+      <a href="{{ url_for('home') }}">  Home</a>
+      <a href="{{ url_for('profile') }}">Profile</a>
+      <a href="{{ url_for('sfg') }}">CGPA Calculator</a>
+      <a href="{{ url_for('select')}}">Attendance</a>
+      <a href="{{ url_for('creategroup') }}">Generate Study Groups</a>
+      <a href="{{ url_for('groups') }}">Existing Study Groups</a>
+      <a href="{{ url_for('addevent')}}">Generate Events</a>
+      <a href="{{ url_for('events')}}">View Events</a>
+      <a href="{{ url_for('stats')}}">Stats</a>
+      <a href= "{{ url_for('aboutus') }}">About US</a>
+      <a href = "{{ url_for('login')}}">Login</a>
+      <a href="{{ url_for('logout') }}">   Logout</a>
+   </div>	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+						<form method="POST">
+
+				<div class="table100 ver1 m-b-110">
+					
+						<table>
+							<div class="table100-head">
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Name</th>
+									<th class="cell100 column2">USN</th>
+									<th class="cell100 column3">Toggle</th>
+								</tr>
+							</thead>
+							</div>	
+							<tbody>	
+								
+								{% for row in attendance %}
+									
+								<tr class="row100-body">
+									<td class="cell100 column1">{{ row[0] }}</td>
+									<td class="cell100 column2">{{row[1]}}</td>
+									<td class="cell100 column3"><input type="checkbox" name= {{row[1]}} />&nbsp;</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+						<br>						
+				</div>		
+				<mm>
+            <button type="submit" class="btn btn-primary btn-block">Submit Attendance</button></mm>
+				<!-- <div class = "form-submit">
+				<input type="submit" id="submit" class="submit" value = "Submit attendace"  /> -->
+			</div>
+		</form>
+			</div>
+		</div>
+		
+	</div>
+<!--===============================================================================================-->
+
+</body>
+</html>

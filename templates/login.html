@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Student LOGIN</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename = 'css/util.css') }} ">
+	<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename = 'css/main.css') }}">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title">
+					<span class="login100-form-title-1">
+						STUDENT LOGIN
+					</span>
+				</div>
+
+				<form method= "POST" class="login100-form validate-form">
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+						<span class="label-input100">USN</span>
+						<input class="input100" type="text" name="username" placeholder="Enter USN">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input100">Password</span>
+						<input class="input100" type="password" name="pass" placeholder="Enter password">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="container-login100-form-btn0">
+						<button class="login100-form-btn0">
+							Login
+						</button>
+					</div>
+				</form>
+				<div class="container-login100-form-btn1">
+				<a href=" {{ url_for('index') }} " class="login100-form-btn1" role="button">Sign Up</a>	
+				<!-- <button class="login100-form-btn1" >Sign Up
+						</button> -->
+					</div>
+				<div class="container-login100-form-btn2">
+						<a href=" {{ url_for('login_t') }} " class="login100-form-btn1" role="button">Admin Login</a>	
+					</div>	
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
