@@ -166,7 +166,7 @@ def home():
     data1 = cur.fetchall()
     curdate = str(data1[0][0])
     print(curdate)
-    #cur.execute('select * from notiflistgr where usn = "%s"' %(session['usn']))
+    cur.execute('select * from notiflistgr where usn = "%s"' %(session['usn']))
     data1 = cur.fetchall()
     print(data1)
     dates = []
@@ -596,8 +596,9 @@ def selgroup():
             print(maxg)
             if maxg:
                 print(usn1)
-                cur.execute('select * from studgroup where usn = "%s"' %(usn1))
+                cur.execute('select * from studgroup where usn = "%s" and groupno = "%s"' %(usn1, groupno))
                 no = cur.fetchall()
+                print(no)
                 if no == ():
                     maxno = maxg[0][0] 
                     curno = maxg[0][1]
@@ -629,6 +630,7 @@ def selgroup():
                         message = Message(subject, sender=sender,recipients=receivers)
                         message.body = messageBody
                         mail.send(message)
+                        return redirect(url_for("groups"))
                     else:
                         flash("Group Limit reached! Registration Unsuccessful.", "error")
             
