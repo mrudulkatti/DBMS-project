@@ -96,15 +96,7 @@
 <body>
     <br>
     <h1 align="center"> EVENTS </h1>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for category,message in messages %}
-             <p style="color: red">{{ message }}</p>
-            {% endfor %}
-        {% else %}
-        <p>&nbsp</p>
-        {% endif %}
-    {% endwith %}
+    
         <br>
     <div class="topnav">
       <a href="{{ url_for('home') }}">  Home</a>
@@ -125,9 +117,13 @@
                 <div class="select">
                     <select name="club" id="search_categories">
                         <option value="all">All</option>
-                        {% for event in distevents %}
-                            <option value="{{event[0]}}">{{event[0]}}</option>
-                        {% endfor %}
+                        {% if distevents == 'No events at the moment' %}
+                            <h1>{{distevents}}</h1>
+                        {% else %}
+                            {% for event in distevents %}
+                                <option value="{{event[0]}}">{{event[0]}}</option>
+                            {% endfor %}
+                        {% endif %}
                         </div>
         </select>
             </div>
@@ -156,6 +152,9 @@
     <div class="tbl-content">
         <table cellpadding="0" cellspacing="0" border="0">
             <tbody>
+            {% if events == 'No events at the moment' %}
+                <h1>{{events}}</h1>
+            {% else %}
                 {% for event in events %}
 
             <tr>
@@ -167,6 +166,7 @@
                 <td>{{event[5]}}</td>
             </tr>
         {% endfor %}
+        {% endif %}
             </tbody>
         </table>
     </div>
